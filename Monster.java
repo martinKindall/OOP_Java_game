@@ -1,35 +1,7 @@
-public class Monster implements Combat
+public class Monster extends Fighter
 {
-	int hitpoints;
-	int baseAttack;
-
-	public Monster(int hitpoints, int baseAttack)
+	public Monster(int hitpoints, int baseAttack, String name)
 	{
-		this.hitpoints = hitpoints;
-		this.baseAttack = baseAttack;
+		super(hitpoints, baseAttack, name);
 	}
-
-	public int attack()
-	{
-		return this.baseAttack;
-	}
-
-	public void receiveDamage(int dmg)
-	{
-		this.hitpoints -= dmg;
-	}
-
-	public boolean dodge()
-	{
-		return true;
-	}
-
-	public boolean outOfCombat()
-	{
-		return this.hitpoints <= 0;
-	}
-
-	public void idle(){
-		this.baseAttack = 0;
-	}   // not used yet
 }

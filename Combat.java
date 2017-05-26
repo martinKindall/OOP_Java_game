@@ -5,4 +5,5 @@ public interface Combat
 	public boolean dodge();
 	public boolean outOfCombat();
 	public void idle();
+	public String toString();
 }

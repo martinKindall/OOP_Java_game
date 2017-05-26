@@ -7,45 +7,15 @@ public class Main
 		Combat character = new Character("Martin", "sword", 3);
 		Combat troll = new Monster(5, 1, "Troll");
 
+		System.out.println(troll.warCry() + " A " + troll + " has appeared.");
+
 		while(!character.outOfCombat() && !troll.outOfCombat())
 		{
 			// turno ficticio 1 fase 1: accion de criatura
-			if (!troll.idle())
-			{
-				System.out.println(troll + " is attacking!");
-				if (character.dodge())
-				{
-					System.out.println("You dodged the attack");
-				}
-				else
-				{
-					character.receiveDamage(troll.attack());
-					System.out.println(character + " received damage");
-				}
-			}
-			else
-			{
-				System.out.println(troll + " didn't attack");
-			}
+			faseTurno(troll, character);
 
 			// turno ficticio 1 fase 2: accion del personaje
-			if (!character.idle())
-			{
-				System.out.println(character + " is attacking!");
-				if (troll.dodge())
-				{
-					System.out.println(troll + " dodged the attack");
-				}
-				else
-				{
-					troll.receiveDamage(character.attack());
-					System.out.println(troll + " received damage");
-				}
-			}
-			else
-			{
-				System.out.println(character + " didn't attack");
-			}
+			faseTurno(character, troll);
 		}
 
 		if (character.outOfCombat())
@@ -59,6 +29,28 @@ public class Main
 	}
 
 
+	public static void faseTurno(Combat combat1, Combat combat2)
+	{
+		if (!combat1.idle())
+		{
+			System.out.println(combat1 + " is attacking!");
+			if (combat2.dodge())
+			{
+				System.out.println(combat2 + " dodged the attack");
+			}
+			else
+			{
+				combat2.receiveDamage(combat1.attack());
+				System.out.println(combat2 + " received damage");
+			}
+		}
+		else
+		{
+			System.out.println(combat1 + " didn't attack");
+		}
+	}
+
+	// Aca empiezan los tests
 	public static void tests()
 	{
 		combatTest();

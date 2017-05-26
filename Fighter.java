@@ -36,6 +36,11 @@ public abstract class Fighter implements Combat
 		return false;
 	}
 
+	public String warCry()
+	{
+		return "";
+	}
+
 	public String toString()
 	{
 		return this.name + " HP:" + this.hitpoints;

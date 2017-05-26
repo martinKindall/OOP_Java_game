@@ -7,6 +7,6 @@ public class Monster extends Fighter
 
 	public String warCry()
 	{
-		return "GROAAAR";
+		return "GROAAAR!";
 	}
 }

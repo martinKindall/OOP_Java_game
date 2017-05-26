@@ -12,6 +12,6 @@ public class Character extends Fighter
 
 	public String toString()
 	{
-		return super.toString() + " EXP: " + this.exp;
+		return super.toString() + " EXP:" + this.exp + " W:" + this.weapon;
 	}
 }

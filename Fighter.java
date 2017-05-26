@@ -23,7 +23,7 @@ public abstract class Fighter implements Combat
 
 	public boolean dodge()
 	{
-		return true;
+		return false;
 	}
 
 	public boolean outOfCombat()
@@ -38,6 +38,6 @@ public abstract class Fighter implements Combat
 
 	public String toString()
 	{
-		return this.name + "(HP:" + this.hitpoints + ")";
+		return this.name + " HP:" + this.hitpoints;
 	}
 }

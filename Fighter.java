@@ -31,10 +31,13 @@ public abstract class Fighter implements Combat
 		return this.hitpoints <= 0;
 	}
 
-	public void idle(){}   // not used yet
+	public boolean idle()
+	{
+		return false;
+	}
 
 	public String toString()
 	{
-		return this.name + ". HP: " + this.hitpoints;
+		return this.name + "(HP:" + this.hitpoints + ")";
 	}
 }

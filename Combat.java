@@ -4,6 +4,6 @@ public interface Combat
 	public void receiveDamage(int dmg);
 	public boolean dodge();
 	public boolean outOfCombat();
-	public void idle();
+	public boolean idle();
 	public String toString();
 }

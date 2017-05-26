@@ -1,7 +1,8 @@
 public interface Combat
 {
 	public int attack();
-	public int receiveDamage();
+	public void receiveDamage(int dmg);
 	public boolean dodge();
-	public void wait();
+	public boolean outOfCombat();
+	public void idle();
 }

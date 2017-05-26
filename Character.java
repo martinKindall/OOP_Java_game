@@ -1,12 +1,18 @@
-public class Monster implements Combat
+public class Character implements Combat
 {
 	int hitpoints;
 	int baseAttack;
+	int exp;
+	String name;
+	String weapon;
 
-	public Monster(int hitpoints, int baseAttack)
+	public Character(String name, String weapon, int baseAttack)
 	{
-		this.hitpoints = hitpoints;
+		this.name = name;
+		this.weapon = weapon;
 		this.baseAttack = baseAttack;
+		this.hitpoints = 10;
+		this.exp = 0;
 	}
 
 	public int attack()

@@ -4,8 +4,8 @@ public class Main
 	{
 		tests();
 
-		Combat character = new Character("Martin", "sword", 3);
-		Combat troll = new Monster(5, 1, "Troll");
+		Combat character = new Character(3, "Martin", "sword");
+		Combat troll = new Monster();
 
 		System.out.println(troll.warCry() + " A " + troll + " has appeared.");
 
@@ -66,13 +66,10 @@ public class Main
 
 	public static void combatTest()
 	{
-		Combat prueba = new Monster(1, 1, "prueba");
-		prueba.receiveDamage(prueba.attack());
-		assert prueba.outOfCombat();
-
-		// tiene 2 hp y solo hace 1 de dmg, no debe morir
-		Combat prueba2 = new Monster(2, 1, "prueba2");
-		prueba2.receiveDamage(prueba2.attack());
-		assert !prueba2.outOfCombat();
+		Combat prueba = new Monster();
+		while(!prueba.outOfCombat())
+		{
+			prueba.receiveDamage(prueba.attack());
+		}
 	}
 }

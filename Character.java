@@ -3,7 +3,7 @@ public class Character extends Fighter
 	int exp;
 	String weapon;
 
-	public Character(String name, String weapon, int baseAttack)
+	public Character(int baseAttack, String name, String weapon)
 	{
 		super(10, baseAttack, name);
 		this.weapon = weapon;

@@ -1,8 +1,8 @@
 public class Monster extends Fighter
 {
-	public Monster(int hitpoints, int baseAttack, String name)
+	public Monster()
 	{
-		super(hitpoints, baseAttack, name);
+		super(10, 1, "Monster");
 	}
 
 	public String warCry()

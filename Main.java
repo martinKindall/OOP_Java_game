@@ -12,10 +12,10 @@ public class Main
 		while(!character.outOfCombat() && !troll.outOfCombat())
 		{
 			// turno ficticio 1 fase 1: accion de criatura
-			faseTurno(troll, character);
+			initAttack(troll, character);
 
 			// turno ficticio 1 fase 2: accion del personaje
-			faseTurno(character, troll);
+			initAttack(character, troll);
 		}
 
 		if (character.outOfCombat())
@@ -28,8 +28,16 @@ public class Main
 		}
 	}
 
-
-	public static void faseTurno(Combat combat1, Combat combat2)
+	/**
+	 * [initAttack: Combat Combat -> None]
+	 *
+	 * The first combat object attacks the second
+	 * if it doesnt fail
+	 *
+	 * effect: the second combat object may lose hitpoints
+	 * 
+	 */
+	public static void initAttack(Combat combat1, Combat combat2)
 	{
 		if (!combat1.idle())
 		{
@@ -66,10 +74,5 @@ public class Main
 		Combat prueba2 = new Monster(2, 1, "prueba2");
 		prueba2.receiveDamage(prueba2.attack());
 		assert !prueba2.outOfCombat();
-
-		// ataca 0, no debe morir
-		Combat prueba3 = new Monster(1, 0, "prueba3");
-		prueba3.receiveDamage(prueba3.attack());
-		assert !prueba3.outOfCombat();
 	}
 }

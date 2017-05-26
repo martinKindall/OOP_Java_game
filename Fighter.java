@@ -9,6 +9,8 @@ public abstract class Fighter implements Combat
 		this.hitpoints = hitpoints;
 		this.baseAttack = baseAttack;
 		this.name = name;
+		
+		assert hitpoints > 0 && name.length() > 0 && baseAttack > 0;
 	}
 
 	public int attack()

@@ -4,4 +4,9 @@ public class Monster extends Fighter
 	{
 		super(hitpoints, baseAttack, name);
 	}
+
+	public String warCry()
+	{
+		return "GROAAAR";
+	}
 }

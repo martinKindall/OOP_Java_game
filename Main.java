@@ -31,6 +31,7 @@ public class Main
 		monsters = new LinkedList<Combat>();
 		fillWithMonsters(monsters, 1);
 		fillWithGoblins(monsters, 1);
+		fillWithDragons(monsters, 1);
 
 		while(monsters.size() > 0)
 		{
@@ -191,6 +192,14 @@ public class Main
 		for (int idx=0; idx<qty; ++idx) 
 		{
 			monsters.add(new Goblin());
+		}
+	}
+
+	public static void fillWithDragons(LinkedList<Combat> monsters, int qty)
+	{
+		for (int idx=0; idx<qty; ++idx) 
+		{
+			monsters.add(new Dragon());
 		}
 	}
 

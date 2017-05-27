@@ -6,3 +6,11 @@ El objetivo del juego es salir de la cueva. Para salir de
 la cueva hay que derrotar a todas las criaturas que vayan 
 apareciendo.
 
+----------------------------------------------------------
+
+Dungeon is a turn-based game. The player controls a character
+, created by him, to fight random monsters.
+
+The goal is to get out of the cave. In order to accomplish
+this you must defeat every monster.
+

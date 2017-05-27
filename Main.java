@@ -10,6 +10,8 @@ public class Main
 	static Combat character;
 	static LinkedList<Combat> monsters;
 
+	static String menuAction;
+
 	public static void main(String[] args) throws IOException
 	{
 		tests();
@@ -33,7 +35,7 @@ public class Main
 		System.exit(0);
 	}
 
-	public static void currentTurn()
+	public static void currentTurn() throws IOException
 	{
 		Combat currentMonster = monsters.poll();
 		Utils.println(currentMonster.warCry() + " A " + currentMonster + " has appeared.");
@@ -42,6 +44,7 @@ public class Main
 			// turno ficticio 1 fase 1: accion de criatura
 			initAttack(currentMonster, character);
 
+			menuAction = getMenuAction();
 			// turno ficticio 1 fase 2: accion del personaje
 			initAttack(character, currentMonster);
 		}
@@ -149,6 +152,33 @@ public class Main
 		{
 			monsters.add(new Monster());
 		}
+	}
+
+	public static final String attack = "a";
+	public static final String heal = "h";
+	public static final String quit = "q";
+
+	/**
+	 * [getMenuAction: None -> String]
+	 *
+	 * return a valid menu action string
+	 * 
+	 */
+	public static String getMenuAction() throws IOException
+	{
+		final String[] validActions = {attack, heal, quit};
+		String action = Utils.readLine("Choose [a:attack, h:heal, q:quit]? ");
+
+		for (int idx=0; idx<validActions.length; ++idx) 
+    	{
+    		if (validActions[idx].equals(action))
+    		{
+    			return action;
+    		} 
+    	}
+
+    	Utils.println("Not a valid action!");
+    	return getMenuAction();
 	}
 
 	// Aca empiezan los tests

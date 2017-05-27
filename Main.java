@@ -66,6 +66,7 @@ public class Main
 	public static void tests()
 	{
 		combatTest();
+		characterTest();
 	}
 
 	public static void combatTest()
@@ -74,6 +75,15 @@ public class Main
 		while(!prueba.outOfCombat())
 		{
 			prueba.receiveDamage(prueba.attack());
+		}
+	}
+
+	public static void characterTest()
+	{
+		Combat character = new Character(3, "Martin", "sword");
+		while(!character.outOfCombat())
+		{
+			character.receiveDamage(character.attack());
 		}
 	}
 }

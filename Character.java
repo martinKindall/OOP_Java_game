@@ -5,7 +5,7 @@ public class Character extends Fighter
 
 	public Character(int baseAttack, String name, String weapon)
 	{
-		super(10, baseAttack, name);
+		super(30, baseAttack, name);
 		this.weapon = weapon;
 		this.exp = 0;
 

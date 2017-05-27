@@ -28,26 +28,36 @@ public class Main
 		}
 
 		System.out.println(monsters);
+		System.out.println(monsters.size());
+		System.out.println(monsters.poll());
 
-		// System.out.println(troll.warCry() + " A " + troll + " has appeared.");
+		while(monsters.size() > 0)
+		{
+			Combat currentMonster = monsters.poll();
 
-		// while(!character.outOfCombat() && !troll.outOfCombat())
-		// {
-		// 	// turno ficticio 1 fase 1: accion de criatura
-		// 	initAttack(troll, character);
+			Utils.println(currentMonster.warCry() + " A " + currentMonster + " has appeared.");
+			while(!currentMonster.outOfCombat() && !character.outOfCombat())
+			{
+				// turno ficticio 1 fase 1: accion de criatura
+				initAttack(currentMonster, character);
 
-		// 	// turno ficticio 1 fase 2: accion del personaje
-		// 	initAttack(character, troll);
-		// }
+				// turno ficticio 1 fase 2: accion del personaje
+				initAttack(character, currentMonster);
+			}
 
-		// if (character.outOfCombat())
-		// {
-		// 	System.out.println("You can't fight anymore. GAME OVER...");
-		// }
-		// else
-		// {
-		// 	System.out.println("You defeated the monster. You win!!!");
-		// }
+			if (character.outOfCombat())
+			{
+				Utils.println("You can't fight anymore. GAME OVER...");
+				System.exit(0);
+			}
+			else
+			{
+				Utils.println("You defeated " + currentMonster);
+			}
+		}
+
+		Utils.println("There are no more monsters, you WIN!");
+		System.exit(0);
 	}
 
 	/**
@@ -63,20 +73,20 @@ public class Main
 	{
 		if (!combat1.idle())
 		{
-			System.out.println(combat1 + " is attacking!");
+			Utils.println(combat1 + " is attacking!");
 			if (combat2.dodge())
 			{
-				System.out.println(combat2 + " dodged the attack");
+				Utils.println(combat2 + " dodged the attack");
 			}
 			else
 			{
 				combat2.receiveDamage(combat1.attack());
-				System.out.println(combat2 + " received damage");
+				Utils.println(combat2 + " received damage");
 			}
 		}
 		else
 		{
-			System.out.println(combat1 + " didn't attack");
+			Utils.println(combat1 + " didn't attack");
 		}
 	}
 

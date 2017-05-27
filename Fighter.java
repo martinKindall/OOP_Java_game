@@ -4,12 +4,14 @@ public abstract class Fighter implements Combat
 	int baseAttack;
 	int exp;
 	String name;
+	int dodge;
 
-	Fighter(int hitpoints, int baseAttack, int exp, String name)
+	Fighter(int hitpoints, int baseAttack, int exp, int dodge, String name)
 	{
 		this.hitpoints = hitpoints;
 		this.baseAttack = baseAttack;
 		this.exp = exp;
+		this.dodge = dodge;
 		this.name = name;
 		
 		assert hitpoints > 0 && name.length() > 0 && baseAttack > 0;
@@ -28,7 +30,7 @@ public abstract class Fighter implements Combat
 
 	public boolean dodge()
 	{
-		return false;
+		return Utils.random(0, 9) > this.dodge;
 	}
 
 	public boolean outOfCombat()

@@ -1,8 +1,8 @@
 public abstract class ColoredMonster extends Monster
 {
-	ColoredMonster(int hitpoints, int baseAttack, int exp, String name)
+	ColoredMonster(int hitpoints, int baseAttack, int exp, int dodge, String name)
 	{
-		super(hitpoints, baseAttack, exp, getColor() + " " + name);
+		super(hitpoints, baseAttack, exp, dodge, getColor() + " " + name);
 	}
 
 	public static String getColor()

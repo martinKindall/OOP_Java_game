@@ -29,7 +29,8 @@ public class Main
 		character = new Character(baseAttack, name, weapon);
 
 		monsters = new LinkedList<Combat>();
-		fillWithMonsters(monsters, 3);
+		fillWithMonsters(monsters, 1);
+		fillWithGoblins(monsters, 1);
 
 		while(monsters.size() > 0)
 		{
@@ -182,6 +183,14 @@ public class Main
 		for (int idx=0; idx<qty; ++idx) 
 		{
 			monsters.add(new Monster());
+		}
+	}
+
+	public static void fillWithGoblins(LinkedList<Combat> monsters, int qty)
+	{
+		for (int idx=0; idx<qty; ++idx) 
+		{
+			monsters.add(new Goblin());
 		}
 	}
 

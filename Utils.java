@@ -36,4 +36,8 @@ class Utils{
 	static public void println(double x){
 		System.out.println(x);
 	}
+	static public void clearScreen(){
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
+	}
 }

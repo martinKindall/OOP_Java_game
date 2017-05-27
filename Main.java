@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.lang.Runtime;
 
 public class Main
 {
@@ -20,6 +21,10 @@ public class Main
 
 	public static void game() throws IOException
 	{
+		Utils.clearScreen();
+		Utils.println("Welcome to the dungeon game!");
+		Utils.println("");
+
 		getDataCharacter();
 		character = new Character(baseAttack, name, weapon);
 
@@ -43,8 +48,14 @@ public class Main
 		{
 			// fase 1: accion de criatura
 			monsterTurn(currentMonster);
+
+			Utils.println("------------------------------------------");
+
 			// fase 2: accion del jugador
 			playerTurn(currentMonster);
+
+			Utils.readLine("Press enter to continue: ");
+			Utils.clearScreen();
 		}
 
 		if (character.outOfCombat())

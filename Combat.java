@@ -9,4 +9,5 @@ public interface Combat
 	public void gainExp(int exp);
 	public int getExp();
 	public String toString();
+	public void selfHeal();
 }

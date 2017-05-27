@@ -18,4 +18,9 @@ public class Character extends Fighter
 	{
 		return super.toString() + " EXP:" + this.exp + " W:" + this.weapon;
 	}
+
+	public void selfHeal()
+	{
+		super.hitpoints += 3;
+	}
 }

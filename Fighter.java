@@ -62,4 +62,6 @@ public abstract class Fighter implements Combat
 	{
 		return this.name + " HP:" + this.hitpoints;
 	}
+
+	public void selfHeal(){}
 }

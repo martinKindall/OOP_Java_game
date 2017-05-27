@@ -59,7 +59,7 @@ public class Main
 			Utils.readLine("Press enter to continue: ");
 			Utils.clearScreen();
 		}
-		
+
 		Utils.println("You defeated " + currentMonster);
 	}
 
@@ -83,6 +83,7 @@ public class Main
 			case attack:	initAttack(character, currentMonster);
 							break;
 			case heal: 		Utils.println("You heal yourself");
+							character.selfHeal();
 					 		break;
 			case quit: 		Utils.println("You quit the game. See you next time..");
 							System.exit(0);

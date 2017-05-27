@@ -45,8 +45,19 @@ public class Main
 			initAttack(currentMonster, character);
 
 			menuAction = getMenuAction();
+
+			switch (menuAction)
+			{
+				case attack:	initAttack(character, currentMonster);
+								break;
+				case heal: 		Utils.println("You heal yourself");
+						 		break;
+				case quit: 		Utils.println("You quit the game. See you next time..");
+								System.exit(0);
+				default:        Utils.println("Something weird happened");
+								break;
+			}
 			// turno ficticio 1 fase 2: accion del personaje
-			initAttack(character, currentMonster);
 		}
 
 		if (character.outOfCombat())

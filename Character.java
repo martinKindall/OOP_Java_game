@@ -5,6 +5,7 @@ public class Character extends Fighter
 	static int exp = 0;
 	static int hitpoints = 30;
 	static int dodge = 8;
+	static int maxHitpoins = 30;
 
 	public Character(int baseAttack, String name, String weapon)
 	{
@@ -22,5 +23,6 @@ public class Character extends Fighter
 	public void selfHeal()
 	{
 		super.hitpoints += 3;
+		if (super.hitpoints > maxHitpoins) super.hitpoints = maxHitpoins;
 	}
 }

@@ -7,6 +7,9 @@ public class Main
 	static String weapon;
 	static int baseAttack;
 
+	static Combat character;
+	static LinkedList<Combat> monsters;
+
 	public static void main(String[] args) throws IOException
 	{
 		tests();
@@ -16,38 +19,42 @@ public class Main
 	public static void game() throws IOException
 	{
 		getDataCharacter();
-		Combat character = new Character(baseAttack, name, weapon);
+		character = new Character(baseAttack, name, weapon);
 
-		LinkedList<Combat> monsters = new LinkedList<Combat>();
+		monsters = new LinkedList<Combat>();
 		fillWithMonsters(monsters, 3);
 
 		while(monsters.size() > 0)
 		{
-			Combat currentMonster = monsters.poll();
-
-			Utils.println(currentMonster.warCry() + " A " + currentMonster + " has appeared.");
-			while(!currentMonster.outOfCombat() && !character.outOfCombat())
-			{
-				// turno ficticio 1 fase 1: accion de criatura
-				initAttack(currentMonster, character);
-
-				// turno ficticio 1 fase 2: accion del personaje
-				initAttack(character, currentMonster);
-			}
-
-			if (character.outOfCombat())
-			{
-				Utils.println("You can't fight anymore. GAME OVER...");
-				System.exit(0);
-			}
-			else
-			{
-				Utils.println("You defeated " + currentMonster);
-			}
+			currentTurn();
 		}
 
 		Utils.println("There are no more monsters, you WIN!");
 		System.exit(0);
+	}
+
+	public static void currentTurn()
+	{
+		Combat currentMonster = monsters.poll();
+		Utils.println(currentMonster.warCry() + " A " + currentMonster + " has appeared.");
+		while(!currentMonster.outOfCombat() && !character.outOfCombat())
+		{
+			// turno ficticio 1 fase 1: accion de criatura
+			initAttack(currentMonster, character);
+
+			// turno ficticio 1 fase 2: accion del personaje
+			initAttack(character, currentMonster);
+		}
+
+		if (character.outOfCombat())
+		{
+			Utils.println("You can't fight anymore. GAME OVER...");
+			System.exit(0);
+		}
+		else
+		{
+			Utils.println("You defeated " + currentMonster);
+		}
 	}
 
 	/**

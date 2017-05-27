@@ -16,20 +16,10 @@ public class Main
 	public static void game() throws IOException
 	{
 		getDataCharacter();
-
 		Combat character = new Character(baseAttack, name, weapon);
+
 		LinkedList<Combat> monsters = new LinkedList<Combat>();
-
-		int numMonsters = 3;
-
-		for (int idx=0; idx<numMonsters; ++idx) 
-		{
-			monsters.add(new Monster());
-		}
-
-		System.out.println(monsters);
-		System.out.println(monsters.size());
-		System.out.println(monsters.poll());
+		fillWithMonsters(monsters, 3);
 
 		while(monsters.size() > 0)
 		{
@@ -136,6 +126,22 @@ public class Main
 
         	default: 				break;
         }
+	}
+
+	/**
+	 * [fillWithMonsters LinkedList<Combat> int -> None]
+	 *
+	 * effect: fills the list with the desired qty of monsters
+	 * 
+	 * @param monsters [description]
+	 * @param qty      [description]
+	 */
+	public static void fillWithMonsters(LinkedList<Combat> monsters, int qty)
+	{
+		for (int idx=0; idx<qty; ++idx) 
+		{
+			monsters.add(new Monster());
+		}
 	}
 
 	// Aca empiezan los tests

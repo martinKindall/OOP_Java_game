@@ -6,5 +6,7 @@ public interface Combat
 	public boolean outOfCombat();
 	public boolean idle();
 	public String warCry();
+	public void gainExp(int exp);
+	public int getExp();
 	public String toString();
 }

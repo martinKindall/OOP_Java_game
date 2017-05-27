@@ -1,13 +1,14 @@
 public class Character extends Fighter
 {
-	int exp;
 	String weapon;
+
+	static int exp = 0;
+	static int hitpoints = 30;
 
 	public Character(int baseAttack, String name, String weapon)
 	{
-		super(30, baseAttack, name);
+		super(hitpoints, baseAttack, exp, name);
 		this.weapon = weapon;
-		this.exp = 0;
 
 		assert weapon.length() > 0 && this.exp >= 0;
 	}

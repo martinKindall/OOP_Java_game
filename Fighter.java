@@ -2,12 +2,14 @@ public abstract class Fighter implements Combat
 {
 	int hitpoints;
 	int baseAttack;
+	int exp;
 	String name;
 
-	Fighter(int hitpoints, int baseAttack, String name)
+	Fighter(int hitpoints, int baseAttack, int exp, String name)
 	{
 		this.hitpoints = hitpoints;
 		this.baseAttack = baseAttack;
+		this.exp = exp;
 		this.name = name;
 		
 		assert hitpoints > 0 && name.length() > 0 && baseAttack > 0;
@@ -42,6 +44,16 @@ public abstract class Fighter implements Combat
 	public String warCry()
 	{
 		return "";
+	}
+
+	public void gainExp(int exp)
+	{
+		this.exp += exp;
+	}
+
+	public int getExp()
+	{
+		return this.exp;
 	}
 
 	public String toString()

@@ -40,4 +40,7 @@ class Utils{
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
 	}
+	static public int random (int x, int y){
+		return x + (int)(Math.random() * (y-x+1));
+	}
 }

@@ -3,7 +3,11 @@ public class Main
 	public static void main(String[] args)
 	{
 		tests();
+		// game();
+	}
 
+	public static void game()
+	{
 		Combat character = new Character(3, "Martin", "sword");
 		Combat troll = new Monster();
 

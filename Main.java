@@ -4,6 +4,7 @@ public class Main
 {
 	static String name;
 	static String weapon;
+	static int baseAttack;
 
 	public static void main(String[] args) throws IOException
 	{
@@ -15,7 +16,7 @@ public class Main
 	{
 		createCharacter();
 
-		// Combat character = new Character(3, "Martin", "sword");
+		Combat character = new Character(baseAttack, name, weapon);
 		// Combat troll = new Monster();
 
 		// System.out.println(troll.warCry() + " A " + troll + " has appeared.");
@@ -69,6 +70,11 @@ public class Main
 		}
 	}
 
+
+	public static final String sword = "s";
+	public static final String axe = "a";
+	public static final String bow = "b";
+
 	/**
 	 * [createCharacter: None -> None]
 	 *
@@ -79,7 +85,7 @@ public class Main
 	 */
 	public static void createCharacter() throws IOException
 	{
-        String[] validWeapons = {"s", "b", "a"};
+        final String[] validWeapons = {sword, axe, bow};
         boolean isvalid = false;
 
 		name = Utils.readLine("Name? ");
@@ -97,6 +103,18 @@ public class Main
         		} 
         	}
         	if (!isvalid) Utils.println("Not a valid weapon!");
+        }
+
+        switch (weapon)
+        {
+        	case axe:	baseAttack = 2;
+        							break;
+        	case sword:	baseAttack = 1;
+					    			break;
+        	case bow: 	baseAttack = 3;
+        						  	break;
+
+        	default: 				break;
         }
 	}
 

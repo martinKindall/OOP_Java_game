@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 public class Main
 {
@@ -14,10 +15,19 @@ public class Main
 
 	public static void game() throws IOException
 	{
-		createCharacter();
+		getDataCharacter();
 
 		Combat character = new Character(baseAttack, name, weapon);
-		// Combat troll = new Monster();
+		LinkedList<Combat> monsters = new LinkedList<Combat>();
+
+		int numMonsters = 3;
+
+		for (int idx=0; idx<numMonsters; ++idx) 
+		{
+			monsters.add(new Monster());
+		}
+
+		System.out.println(monsters);
 
 		// System.out.println(troll.warCry() + " A " + troll + " has appeared.");
 
@@ -76,14 +86,14 @@ public class Main
 	public static final String bow = "b";
 
 	/**
-	 * [createCharacter: None -> None]
+	 * [getDataCharacter: None -> None]
 	 *
 	 * effect: the global variables name and weapon 
 	 * are assigned with the user input
 	 * 
 	 * @throws IOException [description]
 	 */
-	public static void createCharacter() throws IOException
+	public static void getDataCharacter() throws IOException
 	{
         final String[] validWeapons = {sword, axe, bow};
         boolean isvalid = false;

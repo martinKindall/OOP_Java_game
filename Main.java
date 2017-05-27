@@ -69,10 +69,35 @@ public class Main
 		}
 	}
 
+	/**
+	 * [createCharacter: None -> None]
+	 *
+	 * effect: the global variables name and weapon 
+	 * are assigned with the user input
+	 * 
+	 * @throws IOException [description]
+	 */
 	public static void createCharacter() throws IOException
 	{
+        String[] validWeapons = {"s", "b", "a"};
+        boolean isvalid = false;
+
 		name = Utils.readLine("Name? ");
-        weapon = Utils.readLine("Weapon [s:sword, b:bow, a:axe]? ");
+
+        while(!isvalid)
+        {
+	        weapon = Utils.readLine("Weapon [s:sword, b:bow, a:axe]? ");
+
+        	for (int idx=0; idx<validWeapons.length; ++idx) 
+        	{
+        		if (validWeapons[idx].equals(weapon))
+        		{
+        			isvalid = true;
+	    			break;
+        		} 
+        	}
+        	if (!isvalid) Utils.println("Not a valid weapon!");
+        }
 	}
 
 	// Aca empiezan los tests

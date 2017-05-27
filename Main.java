@@ -28,21 +28,21 @@ public class Main
 
 		while(monsters.size() > 0)
 		{
-			currentTurn();
+			currentTurn(monsters.poll());
 		}
 
 		Utils.println("There are no more monsters, you WIN!");
 		System.exit(0);
 	}
 
-	public static void currentTurn() throws IOException
+	public static void currentTurn(Combat monster) throws IOException
 	{
-		Combat currentMonster = monsters.poll();
+		Combat currentMonster = monster;
 		Utils.println(currentMonster.warCry() + " A " + currentMonster + " has appeared.");
 		while(!currentMonster.outOfCombat() && !character.outOfCombat())
 		{
 			// fase 1: accion de criatura
-			initAttack(currentMonster, character);
+			monsterTurn(currentMonster);
 			// fase 2: accion del jugador
 			playerTurn(currentMonster);
 		}
@@ -56,6 +56,11 @@ public class Main
 		{
 			Utils.println("You defeated " + currentMonster);
 		}
+	}
+
+	public static void monsterTurn(Combat currentMonster) throws IOException
+	{
+		initAttack(currentMonster, character);
 	}
 
 	public static void playerTurn(Combat currentMonster) throws IOException

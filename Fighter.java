@@ -21,6 +21,7 @@ public abstract class Fighter implements Combat
 	public void receiveDamage(int dmg)
 	{
 		this.hitpoints -= dmg;
+		if (this.hitpoints < 0) this.hitpoints = 0;
 	}
 
 	public boolean dodge()

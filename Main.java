@@ -46,7 +46,7 @@ public class Main
 	{
 		Combat currentMonster = monster;
 		Utils.println(currentMonster.warCry() + " A " + currentMonster + " has appeared.");
-		while(!currentMonster.outOfCombat() && !character.outOfCombat())
+		while(!currentMonster.outOfCombat())
 		{
 			// fase 1: accion de criatura
 			monsterTurn(currentMonster);
@@ -59,16 +59,8 @@ public class Main
 			Utils.readLine("Press enter to continue: ");
 			Utils.clearScreen();
 		}
-
-		if (character.outOfCombat())
-		{
-			Utils.println("You can't fight anymore. GAME OVER...");
-			System.exit(0);
-		}
-		else
-		{
-			Utils.println("You defeated " + currentMonster);
-		}
+		
+		Utils.println("You defeated " + currentMonster);
 	}
 
 	public static void monsterTurn(Combat currentMonster) throws IOException
@@ -78,6 +70,12 @@ public class Main
 
 	public static void playerTurn(Combat currentMonster) throws IOException
 	{
+		if (character.outOfCombat())
+		{
+			Utils.println("You can't fight anymore. GAME OVER...");
+			System.exit(0);
+		}
+
 		menuAction = getMenuAction();
 
 		switch (menuAction)

@@ -41,23 +41,10 @@ public class Main
 		Utils.println(currentMonster.warCry() + " A " + currentMonster + " has appeared.");
 		while(!currentMonster.outOfCombat() && !character.outOfCombat())
 		{
-			// turno ficticio 1 fase 1: accion de criatura
+			// fase 1: accion de criatura
 			initAttack(currentMonster, character);
-
-			menuAction = getMenuAction();
-
-			switch (menuAction)
-			{
-				case attack:	initAttack(character, currentMonster);
-								break;
-				case heal: 		Utils.println("You heal yourself");
-						 		break;
-				case quit: 		Utils.println("You quit the game. See you next time..");
-								System.exit(0);
-				default:        Utils.println("Something weird happened");
-								break;
-			}
-			// turno ficticio 1 fase 2: accion del personaje
+			// fase 2: accion del jugador
+			playerTurn(currentMonster);
 		}
 
 		if (character.outOfCombat())
@@ -68,6 +55,23 @@ public class Main
 		else
 		{
 			Utils.println("You defeated " + currentMonster);
+		}
+	}
+
+	public static void playerTurn(Combat currentMonster) throws IOException
+	{
+		menuAction = getMenuAction();
+
+		switch (menuAction)
+		{
+			case attack:	initAttack(character, currentMonster);
+							break;
+			case heal: 		Utils.println("You heal yourself");
+					 		break;
+			case quit: 		Utils.println("You quit the game. See you next time..");
+							System.exit(0);
+			default:        Utils.println("Something weird happened");
+							break;
 		}
 	}
 

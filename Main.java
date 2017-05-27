@@ -1,35 +1,42 @@
+import java.io.*;
+
 public class Main
 {
-	public static void main(String[] args)
+	static String name;
+	static String weapon;
+
+	public static void main(String[] args) throws IOException
 	{
 		tests();
-		// game();
+		game();
 	}
 
-	public static void game()
+	public static void game() throws IOException
 	{
-		Combat character = new Character(3, "Martin", "sword");
-		Combat troll = new Monster();
+		createCharacter();
 
-		System.out.println(troll.warCry() + " A " + troll + " has appeared.");
+		// Combat character = new Character(3, "Martin", "sword");
+		// Combat troll = new Monster();
 
-		while(!character.outOfCombat() && !troll.outOfCombat())
-		{
-			// turno ficticio 1 fase 1: accion de criatura
-			initAttack(troll, character);
+		// System.out.println(troll.warCry() + " A " + troll + " has appeared.");
 
-			// turno ficticio 1 fase 2: accion del personaje
-			initAttack(character, troll);
-		}
+		// while(!character.outOfCombat() && !troll.outOfCombat())
+		// {
+		// 	// turno ficticio 1 fase 1: accion de criatura
+		// 	initAttack(troll, character);
 
-		if (character.outOfCombat())
-		{
-			System.out.println("You can't fight anymore. GAME OVER...");
-		}
-		else
-		{
-			System.out.println("You defeated the monster. You win!!!");
-		}
+		// 	// turno ficticio 1 fase 2: accion del personaje
+		// 	initAttack(character, troll);
+		// }
+
+		// if (character.outOfCombat())
+		// {
+		// 	System.out.println("You can't fight anymore. GAME OVER...");
+		// }
+		// else
+		// {
+		// 	System.out.println("You defeated the monster. You win!!!");
+		// }
 	}
 
 	/**
@@ -60,6 +67,12 @@ public class Main
 		{
 			System.out.println(combat1 + " didn't attack");
 		}
+	}
+
+	public static void createCharacter() throws IOException
+	{
+		name = Utils.readLine("Name? ");
+        weapon = Utils.readLine("Weapon [s:sword, b:bow, a:axe]? ");
 	}
 
 	// Aca empiezan los tests

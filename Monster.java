@@ -2,7 +2,7 @@ public class Monster extends Fighter
 {
 	static int exp = 1;
 	static int baseAttack = 1;
-	static int hitpoints = 1;
+	static int hitpoints = 10;
 	static int dodge = 8;
 
 	public Monster()

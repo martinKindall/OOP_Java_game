@@ -9,7 +9,7 @@ public class Main
 	static int baseAttack;
 
 	static Combat character;
-	static LinkedList<Combat> monsters;
+	static List<Combat> monsters;
 
 	static String menuAction;
 
@@ -35,7 +35,7 @@ public class Main
 
 		while(monsters.size() > 0)
 		{
-			currentTurn(monsters.poll());
+			currentTurn(monsters.remove(0));
 		}
 
 		Utils.println("There are no more monsters, you WIN!");
@@ -178,7 +178,7 @@ public class Main
 	 * @param monsters [description]
 	 * @param qty      [description]
 	 */
-	public static void fillWithMonsters(LinkedList<Combat> monsters, int qty)
+	public static void fillWithMonsters(List<Combat> monsters, int qty)
 	{
 		for (int idx=0; idx<qty; ++idx) 
 		{
@@ -186,7 +186,7 @@ public class Main
 		}
 	}
 
-	public static void fillWithGoblins(LinkedList<Combat> monsters, int qty)
+	public static void fillWithGoblins(List<Combat> monsters, int qty)
 	{
 		for (int idx=0; idx<qty; ++idx) 
 		{
@@ -194,7 +194,7 @@ public class Main
 		}
 	}
 
-	public static void fillWithDragons(LinkedList<Combat> monsters, int qty)
+	public static void fillWithDragons(List<Combat> monsters, int qty)
 	{
 		for (int idx=0; idx<qty; ++idx) 
 		{

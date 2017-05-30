@@ -4,10 +4,6 @@ import java.lang.Runtime;
 
 public class Main
 {
-	static String name;
-	static String weapon;
-	static int baseAttack;
-
 	static Combat character;
 	static List<Combat> monsters;
 
@@ -25,8 +21,7 @@ public class Main
 		Utils.println("Welcome to the dungeon game!");
 		Utils.println("");
 
-		getDataCharacter();
-		character = new Character(baseAttack, name, weapon);
+		character = CharacterFactory.create();
 
 		monsters = new LinkedList<Combat>();
 		fillWithMonsters(monsters, 1);
@@ -90,56 +85,6 @@ public class Main
 			default:        Utils.println("Something weird happened");
 							break;
 		}
-	}
-
-	
-
-
-	public static final String sword = "s";
-	public static final String axe = "a";
-	public static final String bow = "b";
-
-	/**
-	 * [getDataCharacter: None -> None]
-	 *
-	 * effect: the global variables name and weapon 
-	 * are assigned with the user input
-	 * 
-	 * @throws IOException [description]
-	 */
-	public static void getDataCharacter() throws IOException
-	{
-        final String[] validWeapons = {sword, axe, bow};
-        boolean isvalid = false;
-
-		name = Utils.readLine("Name? ");
-
-        while(!isvalid)
-        {
-	        weapon = Utils.readLine("Weapon [s:sword, b:bow, a:axe]? ");
-
-        	for (int idx=0; idx<validWeapons.length; ++idx) 
-        	{
-        		if (validWeapons[idx].equals(weapon))
-        		{
-        			isvalid = true;
-	    			break;
-        		} 
-        	}
-        	if (!isvalid) Utils.println("Not a valid weapon!");
-        }
-
-        switch (weapon)
-        {
-        	case axe:	baseAttack = 2;
-        							break;
-        	case sword:	baseAttack = 1;
-					    			break;
-        	case bow: 	baseAttack = 3;
-        						  	break;
-
-        	default: 				break;
-        }
 	}
 
 	/**

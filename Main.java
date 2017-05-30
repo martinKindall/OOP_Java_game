@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.lang.Runtime;
 
 public class Main
 {
@@ -22,11 +21,7 @@ public class Main
 		Utils.println("");
 
 		character = CharacterFactory.create();
-
-		monsters = new LinkedList<Combat>();
-		fillWithMonsters(monsters, 1);
-		fillWithGoblins(monsters, 1);
-		fillWithDragons(monsters, 1);
+		monsters = MonsterFactory.create(1, 1, 1);
 
 		while(monsters.size() > 0)
 		{
@@ -87,37 +82,7 @@ public class Main
 		}
 	}
 
-	/**
-	 * [fillWithMonsters LinkedList<Combat> int -> None]
-	 *
-	 * effect: fills the list with the desired qty of monsters
-	 * 
-	 * @param monsters [description]
-	 * @param qty      [description]
-	 */
-	public static void fillWithMonsters(List<Combat> monsters, int qty)
-	{
-		for (int idx=0; idx<qty; ++idx) 
-		{
-			monsters.add(new Monster());
-		}
-	}
-
-	public static void fillWithGoblins(List<Combat> monsters, int qty)
-	{
-		for (int idx=0; idx<qty; ++idx) 
-		{
-			monsters.add(new Goblin());
-		}
-	}
-
-	public static void fillWithDragons(List<Combat> monsters, int qty)
-	{
-		for (int idx=0; idx<qty; ++idx) 
-		{
-			monsters.add(new Dragon());
-		}
-	}
+	
 
 	public static final String attack = "a";
 	public static final String heal = "h";

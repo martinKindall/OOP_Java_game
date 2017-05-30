@@ -8,7 +8,7 @@ public abstract class Fighter implements Combat
 
 	Fighter(int hitpoints, int baseAttack, int exp, int dodge, String name)
 	{
-		this.hitpoints = hitpoints;s
+		this.hitpoints = hitpoints;
 		this.baseAttack = baseAttack;
 		this.exp = exp;
 		this.dodge = dodge;

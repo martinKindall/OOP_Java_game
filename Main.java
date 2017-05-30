@@ -66,50 +66,22 @@ public class Main
 			System.exit(0);
 		}
 
-		menuAction = getMenuAction();
+		menuAction = Menu.getMenuAction();
 
 		switch (menuAction)
 		{
-			case attack:	CombatInteraction.initAttack(character, currentMonster);
-							break;
-			case heal: 		Utils.println("You heal yourself");
-							character.selfHeal();
-					 		break;
-			case quit: 		Utils.println("You quit the game. See you next time..");
-							System.exit(0);
-			default:        Utils.println("Something weird happened");
-							break;
+			case Menu.attack:	CombatInteraction.initAttack(character, currentMonster);
+								break;
+			case Menu.heal: 	Utils.println("You heal yourself");
+								character.selfHeal();
+					 			break;
+			case Menu.quit: 	Utils.println("You quit the game. See you next time..");
+								System.exit(0);
+			default:        	Utils.println("Something weird happened");
+								break;
 		}
 	}
 
-	
-
-	public static final String attack = "a";
-	public static final String heal = "h";
-	public static final String quit = "q";
-
-	/**
-	 * [getMenuAction: None -> String]
-	 *
-	 * return a valid menu action string
-	 * 
-	 */
-	public static String getMenuAction() throws IOException
-	{
-		final String[] validActions = {attack, heal, quit};
-		String action = Utils.readLine("Choose [a:attack, h:heal, q:quit]? ");
-
-		for (int idx=0; idx<validActions.length; ++idx) 
-    	{
-    		if (validActions[idx].equals(action))
-    		{
-    			return action;
-    		} 
-    	}
-
-    	Utils.println("Not a valid action!");
-    	return getMenuAction();
-	}
 
 	// Aca empiezan los tests
 	public static void tests()

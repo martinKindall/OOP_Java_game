@@ -1,12 +1,12 @@
-public interface Combat
+public interface Combater
 {
-	public int attack();
-	public void receiveDamage(int dmg);
+	public void attack(Combater combater);
+	public int getAttack();
+	public void receiveDamage(Combater combater);
 	public boolean dodge();
 	public boolean outOfCombat();
 	public boolean idle();
 	public String warCry();
-	public void gainExp(int exp);
 	public int getExp();
 	public String toString();
 	public void selfHeal();

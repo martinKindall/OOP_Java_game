@@ -22,10 +22,12 @@ public abstract class Fighter implements Combat
 		return this.baseAttack;
 	}
 
-	public void receiveDamage(int dmg)
+	public void receiveDamage(Combater combater)
 	{
-		this.hitpoints -= dmg;
-		if (this.hitpoints < 0) this.hitpoints = 0;
+		if (!dodge()){
+			this.hitpoints -= combater.getAttack();
+			if (this.hitpoints < 0) this.hitpoints = 0;
+		}
 	}
 
 	public boolean dodge()
@@ -43,15 +45,7 @@ public abstract class Fighter implements Combat
 		return false;
 	}
 
-	public String warCry()
-	{
-		return "";
-	}
-
-	public void gainExp(int exp)
-	{
-		this.exp += exp;
-	}
+	public String warCry();
 
 	public int getExp()
 	{
@@ -63,5 +57,5 @@ public abstract class Fighter implements Combat
 		return this.name + " HP:" + this.hitpoints;
 	}
 
-	public void selfHeal(){}
+	public void selfHeal();
 }

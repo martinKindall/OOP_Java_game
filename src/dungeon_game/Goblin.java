@@ -2,14 +2,17 @@ package dungeon_game;
 
 public class Goblin extends ColoredMonster
 {
-	static int exp = 3;
-	static Weapon club = new Club();
-	static int hitpoints = 10;
-	static int dodge = 0;
+	private static int exp = 3;
+	private static int defHitpoints = 10;
+	private static int dodge = 0;
 
 	public Goblin()
 	{
-		super(hitpoints, club, exp, dodge, "Goblin");
+		this(defHitpoints);
+	}
+
+	public Goblin(int hitpoints){
+		super(hitpoints, new Club(), exp, dodge, "Goblin");
 	}
 
 	public String warCry()

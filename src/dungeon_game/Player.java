@@ -6,11 +6,13 @@ public class Player extends Fighter
 
 	private int maxHitpoints;
 
-
 	public Player(String name, Weapon weapon)
 	{
-		super(defaultHp, weapon, 0, 0, name);
+		this(name, weapon, 0);
+	}
 
+	public Player(String name, Weapon weapon, int dodge){
+		super(defaultHp, weapon, 0, dodge, name);
 		assert name.length() > 0 && exp >= 0;
 	}
 

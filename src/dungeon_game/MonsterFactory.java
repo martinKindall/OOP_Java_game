@@ -9,15 +9,13 @@ public class MonsterFactory
 	 * returns a List of type Combat with the desired
 	 * amount of monsters of type Monster, Goblin or Dragon
 	 * 
-	 * @param  monstersQty [description]
 	 * @param  goblinsQty  [description]
 	 * @param  dragonsQty  [description]
 	 * @return             [description]
 	 */
-	public static List<Combater> create(int monstersQty, int goblinsQty, int dragonsQty)
+	public static List<Combater> create(int goblinsQty, int dragonsQty)
 	{
-		List<Combater> monsters = new LinkedList<Combater>();
-		fillWithMonsters(monsters, monstersQty);
+		List<Combater> monsters = new LinkedList<>();
 		fillWithGoblins(monsters, goblinsQty);
 		fillWithDragons(monsters, dragonsQty);
 
@@ -29,16 +27,9 @@ public class MonsterFactory
 	 *
 	 * effect: fills the list with the desired qty of monsters
 	 * 
-	 * @param golbins [description]
+	 * @param goblins [description]
 	 * @param qty      [description]
 	 */
-	public static void fillWithMonsters(List<Combater> golbins, int qty)
-	{
-		for (int idx=0; idx<qty; ++idx) 
-		{
-			golbins.add(new Goblin());
-		}
-	}
 
 	public static void fillWithGoblins(List<Combater> goblins, int qty)
 	{

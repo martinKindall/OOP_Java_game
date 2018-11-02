@@ -8,6 +8,7 @@ public abstract class Fighter implements Combater
 	protected int exp;
 	protected String name;
 	protected int dodge;
+	protected boolean dodgeState;
 
 	Fighter(int hitpoints, Weapon weapon, int exp, int dodge, String name)
 	{
@@ -17,6 +18,7 @@ public abstract class Fighter implements Combater
 		this.exp = exp;
 		this.dodge = dodge;
 		this.name = name;
+		dodgeState = false;
 		
 		assert hitpoints > 0 && name.length() > 0 && weapon.attckPts() > 0;
 	}
@@ -31,20 +33,31 @@ public abstract class Fighter implements Combater
 
 	public void receiveDamage(Combater combater)
 	{
-		if (!dodge()){
+	    dodgeState = false;
+
+        dodgeNow();
+
+		if (!dodgeState){
 			this.hitpoints -= combater.getAttack();
-			if (this.hitpoints < 0) this.hitpoints = 0;
+			if (this.hitpoints <= 0){
+                combater.increaseExp(this);
+                this.hitpoints = 0;
+			}
 		}
 	}
 
+	private void dodgeNow(){
+        dodgeState = Utils.random(0, 9) < this.dodge;
+    }
+
 	public boolean dodge()
 	{
-		return Utils.random(0, 9) < this.dodge;
+		return dodgeState;
 	}
 
 	public boolean outOfCombat()
 	{
-		return this.hitpoints <= 0;
+		return hitpoints <= 0;
 	}
 
 	public boolean idle()
@@ -56,7 +69,7 @@ public abstract class Fighter implements Combater
 
 	public int getExp()
 	{
-		return this.exp;
+		return exp;
 	}
 
 	public String toString()
@@ -69,5 +82,10 @@ public abstract class Fighter implements Combater
 	@Override
 	public int currentHp() {
 		return hitpoints;
+	}
+
+	@Override
+	public void increaseExp(Combater combater) {
+		exp += combater.getExp();
 	}
 }

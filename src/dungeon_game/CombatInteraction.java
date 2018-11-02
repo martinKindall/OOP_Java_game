@@ -15,6 +15,8 @@ public class CombatInteraction
 	{
 		if (!combat1.idle())
 		{
+			combat1.attack(combat2);
+
 			Utils.println(combat1 + " is attacking!");
 			if (combat2.dodge())
 			{
@@ -22,7 +24,6 @@ public class CombatInteraction
 			}
 			else
 			{
-				combat1.attack(combat2);
 				Utils.println(combat2 + " received damage");
 			}
 		}

@@ -3,13 +3,13 @@ import java.io.*;
 
 public class CharacterFactory
 {
-    public static String name;
-    public static String weapon;
-    public static int baseAttack;
+    private static String name;
+    private static String weapon;
+    private static Weapon weap;
 
-    static final String sword = "s";
-    static final String axe = "a";
-    static final String bow = "b";
+    private static final String sword = "s";
+    private static final String axe = "a";
+    private static final String bow = "b";
 
     /**
      * [getDataCharacter: None -> None]
@@ -43,11 +43,11 @@ public class CharacterFactory
 
         switch (weapon)
         {
-            case axe:   baseAttack = 2;
+            case axe:   weap = new Axe();
                                     break;
-            case sword: baseAttack = 1;
+            case sword: weap = new Sword();
                                     break;
-            case bow:   baseAttack = 3;
+            case bow:   weap = new Bow();
                                     break;
 
             default:                break;
@@ -65,7 +65,6 @@ public class CharacterFactory
     public static Combater create() throws IOException
     {
         setDataCharacter();
-        Weapon sword = new Sword();
-        return new Player(name, sword);
+        return new Player(name, weap);
     }
 }

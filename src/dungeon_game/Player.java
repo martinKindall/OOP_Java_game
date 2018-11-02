@@ -4,8 +4,6 @@ public class Player extends Fighter
 {
 	static int defaultHp = 30;
 
-	private int maxHitpoints;
-
 	public Player(String name, Weapon weapon)
 	{
 		this(name, weapon, 0);
@@ -21,14 +19,16 @@ public class Player extends Fighter
 		return "";
 	}
 
+	@Override
 	public String toString()
 	{
-		return super.toString() + " EXP:" + this.exp + " W:" + this.weapon;
+		return super.toString() + " EXP:" + this.exp + " W:" + this.weapon.name();
 	}
 
+	@Override
 	public void selfHeal()
 	{
-		super.hitpoints += 3;
-		if (super.hitpoints > maxHitpoints) super.hitpoints = maxHitpoints;
+		hitpoints += 3;
+		if (hitpoints > maxHitpoints) hitpoints = maxHitpoints;
 	}
 }

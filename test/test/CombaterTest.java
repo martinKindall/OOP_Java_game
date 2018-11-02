@@ -25,11 +25,18 @@ public class CombaterTest {
         character.attack(goblin);
         assertEquals(hitpoints - 4, goblin.currentHp());
     }
-    
+
     @Test
     public void outOfCombatTest(){
         assertFalse(damagedGoblin.outOfCombat());
         goblin.attack(damagedGoblin);
         assertTrue(damagedGoblin.outOfCombat());
+    }
+
+    @Test
+    public void gainExpTest(){
+        int currExp = character.getExp();
+        character.attack(damagedGoblin);
+        assertEquals(currExp + damagedGoblin.getExp(), character.getExp());
     }
 }

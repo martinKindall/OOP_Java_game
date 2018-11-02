@@ -13,4 +13,6 @@ public interface Combater
 	public String toString();
 	public void selfHeal();
 	public int currentHp();
+
+	void increaseExp(Combater combater);
 }

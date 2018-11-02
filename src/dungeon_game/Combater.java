@@ -1,3 +1,5 @@
+package dungeon_game;
+
 public interface Combater
 {
 	public void attack(Combater combater);
@@ -10,4 +12,5 @@ public interface Combater
 	public int getExp();
 	public String toString();
 	public void selfHeal();
+	public int currentHp();
 }

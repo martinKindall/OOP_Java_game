@@ -1,3 +1,4 @@
+package dungeon_game;
 import java.io.*;
 
 public class Menu

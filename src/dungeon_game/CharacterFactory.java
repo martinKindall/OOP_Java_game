@@ -1,3 +1,4 @@
+package dungeon_game;
 import java.io.*;
 
 public class CharacterFactory
@@ -61,9 +62,10 @@ public class CharacterFactory
      * @return [description]
      * @throws IOException   [description]
      */
-    public static Combat create() throws IOException
+    public static Combater create() throws IOException
     {
         setDataCharacter();
-        return new Character(baseAttack, name, weapon);
+        Weapon sword = new Sword();
+        return new Player(name, sword);
     }
 }

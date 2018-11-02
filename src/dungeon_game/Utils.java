@@ -1,4 +1,6 @@
+package dungeon_game;
 import java.io.*;
+
 class Utils{ 
 	static public BufferedReader teclado = 
 		new BufferedReader(new InputStreamReader(System.in));

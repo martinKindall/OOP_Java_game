@@ -1,3 +1,4 @@
+package dungeon_game;
 import java.util.*;
 
 public class MonsterFactory
@@ -13,9 +14,9 @@ public class MonsterFactory
 	 * @param  dragonsQty  [description]
 	 * @return             [description]
 	 */
-	public static List<Combat> create(int monstersQty, int goblinsQty, int dragonsQty)
+	public static List<Combater> create(int monstersQty, int goblinsQty, int dragonsQty)
 	{
-		List<Combat> monsters = new LinkedList<Combat>();
+		List<Combater> monsters = new LinkedList<Combater>();
 		fillWithMonsters(monsters, monstersQty);
 		fillWithGoblins(monsters, goblinsQty);
 		fillWithDragons(monsters, dragonsQty);
@@ -28,18 +29,18 @@ public class MonsterFactory
 	 *
 	 * effect: fills the list with the desired qty of monsters
 	 * 
-	 * @param monsters [description]
+	 * @param golbins [description]
 	 * @param qty      [description]
 	 */
-	public static void fillWithMonsters(List<Combat> monsters, int qty)
+	public static void fillWithMonsters(List<Combater> golbins, int qty)
 	{
 		for (int idx=0; idx<qty; ++idx) 
 		{
-			monsters.add(new Monster());
+			golbins.add(new Goblin());
 		}
 	}
 
-	public static void fillWithGoblins(List<Combat> goblins, int qty)
+	public static void fillWithGoblins(List<Combater> goblins, int qty)
 	{
 		for (int idx=0; idx<qty; ++idx) 
 		{
@@ -47,7 +48,7 @@ public class MonsterFactory
 		}
 	}
 
-	public static void fillWithDragons(List<Combat> dragons, int qty)
+	public static void fillWithDragons(List<Combater> dragons, int qty)
 	{
 		for (int idx=0; idx<qty; ++idx) 
 		{

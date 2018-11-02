@@ -1,3 +1,5 @@
+package dungeon_game;
+
 public class CombatInteraction
 {
 	/**
@@ -9,7 +11,7 @@ public class CombatInteraction
 	 * effect: the second combat object may lose hitpoints
 	 * 
 	 */
-	public static void initAttack(Combat combat1, Combat combat2)
+	public static void initAttack(Combater combat1, Combater combat2)
 	{
 		if (!combat1.idle())
 		{
@@ -20,7 +22,7 @@ public class CombatInteraction
 			}
 			else
 			{
-				combat2.receiveDamage(combat1.attack());
+				combat1.attack(combat2);
 				Utils.println(combat2 + " received damage");
 			}
 		}

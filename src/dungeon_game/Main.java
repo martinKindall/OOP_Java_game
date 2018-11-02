@@ -1,10 +1,11 @@
-import java.io.*;
-import java.util.*;
+package dungeon_game;
+import java.io.IOException;
+import java.util.List;
 
 public class Main
 {
-	static Combat character;
-	static List<Combat> monsters;
+	static Combater character;
+	static List<Combater> monsters;
 
 	static String menuAction;
 
@@ -32,9 +33,9 @@ public class Main
 		System.exit(0);
 	}
 
-	public static void currentTurn(Combat monster) throws IOException
+	public static void currentTurn(Combater monster) throws IOException
 	{
-		Combat currentMonster = monster;
+		Combater currentMonster = monster;
 		Utils.println(currentMonster.warCry() + " A " + currentMonster + " has appeared.");
 		while(!currentMonster.outOfCombat())
 		{
@@ -53,12 +54,12 @@ public class Main
 		Utils.println("You defeated " + currentMonster);
 	}
 
-	public static void monsterTurn(Combat currentMonster) throws IOException
+	public static void monsterTurn(Combater currentMonster) throws IOException
 	{
 		CombatInteraction.initAttack(currentMonster, character);
 	}
 
-	public static void playerTurn(Combat currentMonster) throws IOException
+	public static void playerTurn(Combater currentMonster) throws IOException
 	{
 		if (character.outOfCombat())
 		{
@@ -92,19 +93,20 @@ public class Main
 
 	public static void combatTest()
 	{
-		Combat prueba = new Monster();
+		Combater prueba = new Goblin();
 		while(!prueba.outOfCombat())
 		{
-			prueba.receiveDamage(prueba.attack());
+			prueba.attack(prueba);
 		}
 	}
 
 	public static void characterTest()
 	{
-		Combat character = new Character(3, "Martin", "sword");
+		Weapon sword = new Sword();
+		Combater character = new Player("Martin", sword);
 		while(!character.outOfCombat())
 		{
-			character.receiveDamage(character.attack());
+			character.attack(character);
 		}
 	}
 }

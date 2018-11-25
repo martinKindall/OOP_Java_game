@@ -1,6 +1,14 @@
-package dungeon_game;
+package logic.combater;
 
-public abstract class Fighter implements Combater
+import com.sun.org.glassfish.gmbal.ManagedObject;
+import logic.event.OutOfCombatCombater;
+import logic.weapon.Weapon;
+import utils.Utils;
+
+import java.util.Observable;
+import java.util.Observer;
+
+public abstract class AbstractFighter extends Observable implements Combater
 {
 	protected int hitpoints;
 	protected int maxHitpoints;
@@ -10,7 +18,7 @@ public abstract class Fighter implements Combater
 	protected int dodge;
 	protected boolean dodgeState;
 
-	Fighter(int hitpoints, Weapon weapon, int exp, int dodge, String name)
+	protected AbstractFighter(int hitpoints, Weapon weapon, int exp, int dodge, String name)
 	{
 		this.maxHitpoints = hitpoints;
 		this.hitpoints = hitpoints;
@@ -40,9 +48,9 @@ public abstract class Fighter implements Combater
 		if (!dodgeState){
 			this.hitpoints -= combater.getAttack();
 			if (this.hitpoints <= 0){
-                combater.increaseExp(this);
                 this.hitpoints = 0;
-			}
+                dieNow();
+            }
 		}
 	}
 
@@ -85,7 +93,16 @@ public abstract class Fighter implements Combater
 	}
 
 	@Override
-	public void increaseExp(Combater combater) {
-		exp += combater.getExp();
-	}
+    public void subscribe(Observer observer){
+	    addObserver(observer);
+    }
+
+    @Override
+    public void increaseExp(int newExp){
+    }
+
+    protected void dieNow(){
+	    setChanged();
+	    notifyObservers(new OutOfCombatCombater());
+    }
 }

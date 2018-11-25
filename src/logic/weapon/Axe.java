@@ -1,4 +1,4 @@
-package dungeon_game;
+package logic.weapon;
 
 public class Axe implements Weapon {
     @Override

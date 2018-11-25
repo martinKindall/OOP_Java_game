@@ -1,4 +1,10 @@
-package dungeon_game;
+package controller;
+import logic.combater.Combater;
+import logic.interaction.CombatInteraction;
+import utils.Utils;
+import view.CharacterFactory;
+import view.Menu;
+
 import java.io.IOException;
 import java.util.List;
 

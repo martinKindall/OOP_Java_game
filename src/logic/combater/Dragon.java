@@ -1,10 +1,12 @@
-package dungeon_game;
+package logic.combater;
+
+import logic.weapon.DragonClaws;
 
 public class Dragon extends ColoredMonster
 {
-	static int exp = 5;
-	static int hitpoints = 15;
-	static int dodge = 7;
+	private static int exp = 5;
+	private static int hitpoints = 15;
+	private static int dodge = 7;
 
 	public Dragon()
 	{

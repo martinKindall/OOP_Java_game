@@ -1,4 +1,4 @@
-package dungeon_game;
+package logic.weapon;
 
 public class Sword implements Weapon{
 

@@ -1,4 +1,12 @@
-package dungeon_game;
+package view;
+import logic.combater.Combater;
+import logic.combater.Player;
+import logic.weapon.Axe;
+import logic.weapon.Bow;
+import logic.weapon.Sword;
+import logic.weapon.Weapon;
+import utils.Utils;
+
 import java.io.*;
 
 public class CharacterFactory

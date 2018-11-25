@@ -1,7 +1,6 @@
-package dungeon_game;
+package logic.weapon;
 
-public class Club implements Weapon {
-
+public class Bow implements Weapon {
     @Override
     public int attckPts() {
         return 3;
@@ -9,6 +8,6 @@ public class Club implements Weapon {
 
     @Override
     public String name() {
-        return "wooden club";
+        return "bow";
     }
 }

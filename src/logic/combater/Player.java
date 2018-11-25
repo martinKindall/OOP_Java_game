@@ -1,6 +1,10 @@
-package dungeon_game;
+package logic.combater;
 
-public class Player extends Fighter
+import logic.event.OutOfCombatCombater;
+import logic.event.OutOfCombatPlayer;
+import logic.weapon.Weapon;
+
+public class Player extends AbstractFighter
 {
 	static int defaultHp = 30;
 
@@ -30,5 +34,16 @@ public class Player extends Fighter
 	{
 		hitpoints += 3;
 		if (hitpoints > maxHitpoints) hitpoints = maxHitpoints;
+	}
+
+	@Override
+	public void increaseExp(int newExp){
+		exp += newExp;
+	}
+
+	@Override
+	protected void dieNow(){
+		setChanged();
+		notifyObservers(new OutOfCombatPlayer());
 	}
 }

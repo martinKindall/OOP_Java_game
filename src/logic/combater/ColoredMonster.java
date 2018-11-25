@@ -1,6 +1,9 @@
-package dungeon_game;
+package logic.combater;
 
-public abstract class ColoredMonster extends Fighter
+import logic.weapon.Weapon;
+import utils.Utils;
+
+public abstract class ColoredMonster extends AbstractFighter
 {
 	ColoredMonster(int hitpoints, Weapon weapon, int exp, int dodge, String name)
 	{

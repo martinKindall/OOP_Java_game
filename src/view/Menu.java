@@ -1,4 +1,6 @@
-package dungeon_game;
+package view;
+import utils.Utils;
+
 import java.io.*;
 
 public class Menu

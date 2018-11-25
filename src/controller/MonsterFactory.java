@@ -1,4 +1,8 @@
-package dungeon_game;
+package controller;
+import logic.combater.Combater;
+import logic.combater.Dragon;
+import logic.combater.Goblin;
+
 import java.util.*;
 
 public class MonsterFactory

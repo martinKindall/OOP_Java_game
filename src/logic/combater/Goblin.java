@@ -1,4 +1,6 @@
-package dungeon_game;
+package logic.combater;
+
+import logic.weapon.Club;
 
 public class Goblin extends ColoredMonster
 {

@@ -1,4 +1,7 @@
-package dungeon_game;
+package logic.interaction;
+
+import logic.combater.Combater;
+import utils.Utils;
 
 public class CombatInteraction
 {
